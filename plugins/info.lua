@@ -40,7 +40,7 @@ local function res_user_callback(extra, success, result) -- /info <username> fun
 	local hash = 'rank:'..extra.chat2..':variables'
 	local value = redis:hget(hash, result.id)
     if not value then
-	 if result.id == tonumber(Arian) then
+	 if result.id == 179983320 then
 	   text = text..'Rank : sudo🌟🌟🌟🌟🌟 \n\n'
 	  elseif is_admin2(result.id) then
 	   text = text..'Rank : Admin⭐️⭐️⭐️⭐️ \n\n'
@@ -59,7 +59,7 @@ local function res_user_callback(extra, success, result) -- /info <username> fun
   local um_hash = 'msgs:'..result.id..':'..extra.chat2
   user_info_msgs = tonumber(redis:get(um_hash) or 0)
   text = text..'Total messages : '..user_info_msgs..'\n\n'
-  text = text..'@GPMod Team'
+  text = text..'@extreme Team'
   send_msg(extra.receiver, text, ok_cb,  true)
   else
 	send_msg(extra.receiver, ' Username not found.', ok_cb, false)
@@ -79,14 +79,14 @@ local function action_by_id(extra, success, result)  -- /info <ID> function
   local hash = 'rank:'..extra.chat2..':variables'
   local value = redis:hget(hash, result.id)
   if not value then
-	 if result.id == tonumber(Arian) then
-	   text = text..'Rank : Executive Admin \n\n'
+	 if result.id == 179983320 then
+	   text = text..'Rank : sudo🌟🌟🌟🌟🌟 \n\n'
 	  elseif is_admin2(result.id) then
-	   text = text..'Rank : Admin \n\n'
+	   text = text..'Rank : Admin⭐️⭐️⭐️⭐ \n\n'
 	  elseif is_owner2(result.id, extra.chat2) then
-	   text = text..'Rank : Owner \n\n'
+	   text = text..'Rank : Owner⭐️⭐️ \n\n'
 	  elseif is_momod2(result.id, extra.chat2) then
-	   text = text..'Rank : Moderator \n\n'
+	   text = text..'Rank : Moderator⭐️ \n\n'
 	  else
 	   text = text..'Rank : Member \n\n'
 	  end
@@ -98,7 +98,7 @@ local function action_by_id(extra, success, result)  -- /info <ID> function
   local um_hash = 'msgs:'..result.id..':'..extra.chat2
   user_info_msgs = tonumber(redis:get(um_hash) or 0)
   text = text..'Total messages : '..user_info_msgs..'\n\n'
-  text = text..'@GPMod Team'
+  text = text..'@extreme Team'
   send_msg(extra.receiver, text, ok_cb,  true)
   else
   send_msg(extra.receiver, 'id not found.\nuse : /info @username', ok_cb, false)
@@ -117,14 +117,14 @@ local function action_by_reply(extra, success, result)-- (reply) /info  function
 	local hash = 'rank:'..result.to.id..':variables'
 		local value = redis:hget(hash, result.from.id)
 		 if not value then
-		    if result.from.id == tonumber(Arian) then
-		       text = text..'Rank : Executive Admin \n\n'
+		    if result.from.id == 179983320 then
+		       text = text..'Rank : sudo🌟🌟🌟🌟🌟 \n\n'
 		     elseif is_admin2(result.from.id) then
-		       text = text..'Rank : Admin \n\n'
+		       text = text..'Rank : Admin⭐️⭐️⭐️⭐ \n\n'
 		     elseif is_owner2(result.from.id, result.to.id) then
-		       text = text..'Rank : Owner \n\n'
+		       text = text..'Rank : Owner⭐️⭐ \n\n'
 		     elseif is_momod2(result.from.id, result.to.id) then
-		       text = text..'Rank : Moderator \n\n'
+		       text = text..'Rank : Moderator⭐️ \n\n'
 		 else
 		       text = text..'Rank : Member \n\n'
 			end
@@ -137,7 +137,7 @@ local function action_by_reply(extra, success, result)-- (reply) /info  function
   local um_hash = 'msgs:'..result.from.id..':'..result.to.id
   user_info_msgs = tonumber(redis:get(um_hash) or 0)
   text = text..'Total messages : '..user_info_msgs..'\n\n'
-  text = text..'@GPMod Team'
+  text = text..'@extreme Team'
   send_msg(extra.receiver, text, ok_cb, true)
 end
 
@@ -185,14 +185,14 @@ local function run(msg, matches)
 	if hash then
 	  local value = redis:hget(hash, msg.from.id)
 	  if not value then
-		if msg.from.id == tonumber(Arian) then
-		 text = text..'Rank : Executive Admin \n\n'
+		if msg.from.id == 179983320 then
+		 text = text..'Rank : sudo🌟🌟🌟🌟🌟 \n\n'
 		elseif is_sudo(msg) then
-		 text = text..'Rank : Admin \n\n'
+		 text = text..'Rank : Admin⭐️⭐️⭐️⭐ \n\n'
 		elseif is_owner(msg) then
-		 text = text..'Rank : Owner \n\n'
+		 text = text..'Rank : Owner⭐️⭐️ \n\n'
 		elseif is_momod(msg) then
-		 text = text..'Rank : Moderator \n\n'
+		 text = text..'Rank : Moderator⭐️ \n\n'
 		else
 		 text = text..'Rank : Member \n\n'
 		end
